@@ -1,0 +1,6 @@
+statefulset:
+  imageversion: IMAGE_VERSION
+  region: us-east-1b
+  storage: 2Gi
+  image_url: 343430925817.dkr.ecr.us-east-1.amazonaws.com/expense-dev/backend
+  
