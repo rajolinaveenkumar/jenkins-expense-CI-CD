@@ -1,5 +1,5 @@
 configmap:
-    DB_HOST: "mysql-dev.naveenrajoli.site" 
+    DB_HOST: "mysql-svc" 
 deployment:
   image_url: 343430925817.dkr.ecr.us-east-1.amazonaws.com/expense-dev/backend
   imageversion: IMAGE_VERSION
