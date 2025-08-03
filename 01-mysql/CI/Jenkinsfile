@@ -11,7 +11,7 @@ pipeline {
         acc_id = '343430925817'
         region = 'us-east-1'
         label = 'agent-1-label'
-        appversion = ''
+        appversion = '1.0.0'
     }
 
     options {
@@ -29,17 +29,7 @@ pipeline {
     }
 
     stages {
-        stage('read the version') {
-            
-            steps {
-                script {
-                    
-                    def packagejson = readJSON file: '01-mysql/CI/scripts/package.json'
-                    appversion = packagejson.version
-                    echo "app version is ${appversion}"
-                }
-            }
-        }
+        
 
         
 
