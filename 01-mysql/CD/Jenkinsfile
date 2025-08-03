@@ -27,7 +27,7 @@ pipeline {
     }
 
     stages {
-        stage('Deploy') {nnn
+        stage('Deploy') {
             steps {
                 dir('01-mysql/CD') {
                    script {
