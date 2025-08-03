@@ -4,7 +4,7 @@ pipeline {
     }
 
     environment {
-        project = 'expense'
+        project = 'roboshop'
         env_name = 'dev'
         tier = 'mysql'
         component = 'mysql'
@@ -54,12 +54,12 @@ pipeline {
                                 echo "Helm upgrade is failed, rollback to previous version" 
 
                                 sh """
-                                    helm rollback ${component}-chart -n ${project}
+                                    helm rollback ${component}-chart -n ${namespace}
                                     sleep 30
                                 """
 
                                 def rolloutStatus = sh(
-                                    sscript: "kubectl rollout status deployment/${component} -n ${project} || echo FAILED",
+                                    sscript: "kubectl rollout status deployment/${component} -n ${namespace} || echo FAILED",
                                     returnStdout: true
                                 ).trim()
 
