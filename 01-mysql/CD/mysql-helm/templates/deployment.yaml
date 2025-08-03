@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  namespace: expense
+  name: mysql
+  labels:
+    project: expense
+    tier: database
+    component: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      
+      tier: database
+      component: mysql
+  template:
+    metadata:
+      name: mysql-pod
+      labels:
+        
+        tier: database
+        component: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: "{{ .Values.statefulset.image_url }}:{{ .Values.statefulset.imageversion }}"
+        ports:
+        - containerPort: 3306
+
+        envFrom:
+        - configMapRef:
+            name: mysqlconfigmap
